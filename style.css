@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #b5c2c9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.quiz-container {
+  background-color: rgb(224, 216, 216);
+  width: 90%;
+  max-width: 720px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+.header h1 {
+  margin-bottom: 10px;
+}
+.header p {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.question-section {
+  margin: 20px 0;
+}
+
+.question-section h2 {
+  font-size: 1.4em;
+  margin-bottom: 15px;
+}
+
+.options-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.option {
+  background-color: #f5f5f5;
+  border: 2px solid #dcdcdc;
+  border-radius: 8px;
+  padding: 15px 25px;
+  width: 45%;
+  text-align: left;
+  font-size: 1em;
+  cursor: pointer;
+  transition: ease;
+}
+
+.option:hover {
+  background-color: #f0f8ff;
+  border-color: #007bff;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.prev-next {
+  display: flex;
+  gap: 20px;
+}
+.prev-next button {
+  background-color: #afa7a7;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  font-size: 12px;
+}
+.prev-next button:hover {
+  background-color: #333131;
+  color: white;
+}
+
+.question-count {
+  color: #007bff;
+  font-size: 0.9em;
+}
+
+#submit {
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .option {
+    width: 100%;
+  }
+  .prev-next {
+    gap: 10px;
+  }
+  .prev-next button {
+    padding: 5px;
+    font-size: 10px;
+  }
+  .navigation {
+    gap: 20px;
+  }
+  #submit {
+    color: white;
+    padding: 10px;
+  }
+}
