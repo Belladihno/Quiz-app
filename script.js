@@ -13,14 +13,14 @@ const fetchQuestions = async () => {
 
 let apiQuestions = [];
 
-(async () => {
+window.onload = async () => {
   try {
     apiQuestions = await fetchQuestions();
     fetchedQuestion(apiQuestions);
   } catch (error) {
     console.log('Error fetching apiQuestions', error);
   }
-})();
+};
 
 let currentIndex = 0;
 let selectedAnswer = [];
