@@ -1,10 +1,10 @@
+const loader = document.querySelector('.loading-page');
 const fetchQuestions = async () => {
   try {
     const response = await fetch(
       'https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple'
     );
     const data = await response.json();
-    console.log(data.results);
     return data.results;
   } catch (error) {
     console.log('Error fetching data from quiz qurstions', error);
@@ -13,14 +13,17 @@ const fetchQuestions = async () => {
 
 let apiQuestions = [];
 
-window.onload = async () => {
+(async () => {
   try {
+    loader.style.display = 'block';
     apiQuestions = await fetchQuestions();
     fetchedQuestion(apiQuestions);
+    loader.style.display = 'none';
   } catch (error) {
+    loader.style.display = 'none';
     console.log('Error fetching apiQuestions', error);
   }
-};
+})();
 
 let currentIndex = 0;
 let selectedAnswer = [];
@@ -127,8 +130,7 @@ nextButton.addEventListener('click', () => {
 });
 
 submitButton.addEventListener('click', () => {
-  if(selectedAnswer[currentIndex] !== undefined){
-
+  if (selectedAnswer[currentIndex] !== undefined) {
     totalScore = 0;
     apiQuestions.forEach((question, index) => {
       if (selectedAnswer[index] === question.correct_answer) {
@@ -138,10 +140,7 @@ submitButton.addEventListener('click', () => {
     localStorage.setItem('quizScore', totalScore);
     localStorage.setItem('totalQuestions', apiQuestions.length);
     window.location.href = 'result.html';
-  }
-  else {
+  } else {
     alert('Please answer all questions before submitting.');
   }
-});
-
-
+})
